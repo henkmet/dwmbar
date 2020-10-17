@@ -1,5 +1,5 @@
 /* made by profil 2011-12-29.
-**
+** personalised by Henk Metselaar
 ** Compile with:
 ** gcc -Wall -pedantic -std=c99 -lX11 -lmpdclient -march=native -O2 -o dwmbar dwmbar.c
 */
