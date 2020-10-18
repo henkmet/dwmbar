@@ -53,8 +53,7 @@ jobs:
     #    uses a compiled language
 
     - run: |
-       make bootstrap
-       make release
+      gcc -Wall -pedantic -std=c99 -lX11 -lmpdclient -march=native -O2 -o dwmbar dwmbar.c
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
