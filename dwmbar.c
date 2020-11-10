@@ -129,6 +129,10 @@ char *get_mpd() {
             mpd_connection_free(con);
             free((char*)title);
             free((char*)deeltitel);
+            mpd_song_free(song);
+            mpd_response_finish(con);
+            mpd_status_free(status);
+            mpd_connection_free(con);
             res = smprintf("%s", "Geen speellijst");
             return res;
         }
@@ -155,6 +159,10 @@ char *get_mpd() {
             mpd_connection_free(con);
             free((char*)title);
             free((char*)deeltitel);
+            mpd_song_free(song);
+            mpd_response_finish(con);
+            mpd_status_free(status);
+            mpd_connection_free(con);
             res = smprintf("%s", "Geen titel");
             return res;
         }
