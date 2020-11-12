@@ -45,7 +45,7 @@ smprintf(char *fmt, ...) {
 }
 
 char *getnowplaying() {
-    char *buffer = NULL;
+    char *buffer = "dummy";
     FILE *f = fopen ("/home/henk/.radiotray/nowplaying", "r");
 
     if (f)
