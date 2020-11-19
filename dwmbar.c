@@ -175,7 +175,12 @@ char *get_mpd() {
             res = smprintf("%s", "Geen gegevens2");
         }
     }
-    else res = smprintf("%s", "Geen gegevens3");
+    else {
+            res = smprintf("%s", "Geen gegevens3");
+            free((char*)title);
+            free((char*)deeltitel);
+            return res;
+    }
     free((char*)title);
     free((char*)deeltitel);
     if (song !=NULL) {mpd_song_free(song);}
