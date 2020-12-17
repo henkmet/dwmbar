@@ -215,9 +215,6 @@ int main(void) {
         else {
             snprintf(status, 200, "%s | %s |  %s", mpd, nowplaying, datetime);
         }
-        free(datetime);
-        free(nowplaying);
-        free(mpd);
         setstatus(status);
     }
 
