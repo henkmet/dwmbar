@@ -59,10 +59,12 @@ char *getnowplaying() {
             }
             buffer = malloc(length+1);
             if (fseek(f, 0, SEEK_SET) != 0) {
+                fclose(f);
                 return "mislukt";
             }
             size_t newLen = fread(buffer, 1, length-1, f);
             if (newLen == 0) {
+                fclose(f);
                 return "mislukt";
             } else {
                 buffer[newLen++] = '\0';
