@@ -112,7 +112,7 @@ char *get_mpd() {
     char *token = NULL;
     char *deeltitel = NULL;
 
-    if (!(con = mpd_connection_new("127.0.0.1", 0, 30000)) ||
+    if (!(con = mpd_connection_new("127.0.0.1", 0, 800)) ||
             mpd_connection_get_error(con)) {
         return smprintf("%s", "Geen verbinding");
     }
