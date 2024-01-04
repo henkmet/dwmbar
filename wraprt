@@ -1,3 +1,3 @@
 #! /bin/sh
-    curl https://www.concertzender.nl | grep -A 1 '<div class="cz-font-head single-item-head-text dodot">' | dos2unix| grep '</div>' | lynx -stdin -dump -- | iconv -f utf-8 -t ascii -c | sed -e 's/^[ \t]*//' > /home/henk/.radiotray/nowplaying
+    curl https://www.concertzender.nl | grep -A 1 '<div class="cz-font-head single-item-head-text dodot">' | dos2unix| grep '</div>' | lynx -stdin -dump -- | iconv -f utf-8 -t ascii -c | sed -e 's/^[ \t]*//' -e 's/Nu te horen//' | tr -d '\n' > /home/henk/.radiotray/nowplaying
 
