@@ -114,6 +114,7 @@ char *get_mpd() {
 
     if (!(con = mpd_connection_new("127.0.0.1", 0, 800)) ||
             mpd_connection_get_error(con)) {
+			mpd_connection_free(con);
         return smprintf("%s", "Geen verbinding");
     }
     mpd_command_list_begin(con, true);
