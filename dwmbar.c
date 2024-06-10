@@ -34,7 +34,7 @@ smprintf(char *fmt, ...) {
     ret = malloc(++len);
     if(ret == NULL) {
         perror("malloc");
-        exit(EXIT_FAILURE);
+        exit(1);
     }
 
     va_start(fmtargs, fmt);
@@ -138,6 +138,7 @@ char *get_mpd() {
         title = smprintf("%s",mpd_song_get_uri(song));
 
         if (strcmp(title, "http://streams.greenhost.nl:8080/live") == 0) {
+					free((char*)title);
             title = smprintf("%s", "Concertzender");
         }
         else {
@@ -146,6 +147,7 @@ char *get_mpd() {
                     deeltitel = smprintf("%s",token);
                     token = strtok(NULL,"/");
             }
+						free((char*)title);
             title = smprintf("%s %2d:%.2d/%2d:%.2d",
                             strtok(deeltitel,"."),
                              elapsed/60, elapsed%60,
@@ -179,6 +181,9 @@ char *get_mpd() {
     }
     else {
             res = smprintf("%s", "Geen gegevens3");
+            if (song!=NULL) {mpd_song_free(song);}
+            mpd_response_finish(con);
+            mpd_connection_free(con);
             free((char*)title);
             free((char*)deeltitel);
             return res;
@@ -218,6 +223,9 @@ int main(void) {
             snprintf(status, 200, "%s | %s |  %s", mpd, nowplaying, datetime);
         }
         setstatus(status);
+				free(datetime);
+				free(nowplaying);
+				free(mpd);
     }
 
     free(status);
