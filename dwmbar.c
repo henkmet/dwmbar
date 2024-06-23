@@ -64,7 +64,7 @@ char *read_file_content(const char *path) {
 		exit(1);
 	}
 
-	fread(buffer, 1, length, f);
+	fread(buffer, 1, length-1, f);
 	buffer[length] = '\0';
 	fclose(f);
 
