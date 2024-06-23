@@ -56,17 +56,10 @@
 !_TAG_ROLE_DESCRIPTION!Sh!script	loaded	/loaded/
 !_TAG_ROLE_DESCRIPTION!Yaml!anchor	alias	/alias/
 dpy	dwmbar.c	/^static Display *dpy;$/;"	v	typeref:typename:Display *	file:
-dpy	test.c	/^static Display *dpy;$/;"	v	typeref:typename:Display *	file:
 dwmbar	README.md	/^# dwmbar$/;"	c
 get_mpd	dwmbar.c	/^char *get_mpd() {$/;"	f	typeref:typename:char *
-get_mpd	test.c	/^char *get_mpd() {$/;"	f	typeref:typename:char *
 getdatetime	dwmbar.c	/^char *getdatetime() {$/;"	f	typeref:typename:char *
-getdatetime	test.c	/^char *getdatetime() {$/;"	f	typeref:typename:char *
-getnowplaying	dwmbar.c	/^char *getnowplaying() {$/;"	f	typeref:typename:char *
 main	dwmbar.c	/^int main(void) {$/;"	f	typeref:typename:int
-main	test.c	/^int main(void) {$/;"	f	typeref:typename:int
-read_file_content	test.c	/^char *read_file_content(const char *path) {$/;"	f	typeref:typename:char *
-setstatus	dwmbar.c	/^void setstatus(char *str) {$/;"	f	typeref:typename:void
-setstatus	test.c	/^void setstatus(const char *str) {$/;"	f	typeref:typename:void
-smprintf	dwmbar.c	/^smprintf(char *fmt, ...) {$/;"	f	typeref:typename:char *
-smprintf	test.c	/^char *smprintf(const char *fmt, ...) {$/;"	f	typeref:typename:char *
+read_file_content	dwmbar.c	/^char *read_file_content(const char *path) {$/;"	f	typeref:typename:char *
+setstatus	dwmbar.c	/^void setstatus(const char *str) {$/;"	f	typeref:typename:void
+smprintf	dwmbar.c	/^char *smprintf(const char *fmt, ...) {$/;"	f	typeref:typename:char *

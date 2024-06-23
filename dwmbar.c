@@ -176,7 +176,12 @@ int main(void) {
 		char *nowplaying = read_file_content("/home/henk/.radiotray/nowplaying");
 		char *mpd = get_mpd();
 
-		snprintf(status, sizeof(status), "%s | %s | %s", mpd, nowplaying, datetime);
+		if (strcmp(mpd, "Speelt: Concertzender") == 0) {
+			snprintf(status, 200, "%s | %s |  %s", mpd, nowplaying, datetime);
+		}
+		else {
+			snprintf(status, 200, "%s | %s |  %s", mpd, nowplaying, datetime);
+		}
 
 		setstatus(status);
 
