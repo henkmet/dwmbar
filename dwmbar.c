@@ -57,15 +57,15 @@ char *read_file_content(const char *path) {
 		return smprintf("Even wachten");
 	}
 
-	char *buffer = malloc(length + 1);
+	char *buffer = malloc(length);
 	if (!buffer) {
 		fclose(f);
 		perror("malloc");
 		exit(1);
 	}
 
-	fread(buffer, 1, length-1, f);
-	buffer[length] = '\0';
+	size_t newLen = fread(buffer, 1, length-1, f);
+	buffer[newLen++] = '\0';
 	fclose(f);
 
 	return buffer;
