@@ -118,9 +118,15 @@ char *get_mpd() {
 		title = smprintf("%s", mpd_song_get_uri(song));
 	}
 
+	else {
+		free(title);
+		mpd_status_free(status);
+		mpd_connection_free(con);
+		return smprintf("Onbekend");
+	}
+
 	if (strcmp(title, "http://streams.greenhost.nl:8080/live") == 0) {
-		free((char*)title);
-		title = smprintf("%s", "Concertzender");
+		title = smprintf("Concertzender");
 	}
 
 	else {
@@ -130,7 +136,6 @@ char *get_mpd() {
 			deeltitel = smprintf("%s",token);
 			token = strtok(NULL,"/");
 		}
-		free((char*)title);
 		title = smprintf("%s %2d:%.2d/%2d:%.2d",
 				strtok(deeltitel,"."),
 				elapsed/60, elapsed%60,
