@@ -1,3 +1,2 @@
 #! /bin/sh
-    curl https://www.concertzender.nl | tac | tac | grep -A 1 -m 1 '<div class="cz-font-head single-item-head-text dodot">' | dos2unix| grep '</div>' | sed -e 's/^[ \t]*//' -e 's/Nu te horen//' -e 's/\x09.*//' | grep -vae '^$' > /home/henk/.radiotray/nowplaying
-
+lynx -assume_charset=utf-8 www.concertzender.nl -dump -- | grep -B1 -m 1 'Nu te horen' | head -n 1 | sed -e 's/^[ \t]*//' > /home/henk/.radiotray/nowplaying
