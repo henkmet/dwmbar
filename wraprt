@@ -1,2 +1,2 @@
 #! /bin/sh
-lynx -assume_charset=utf-8 www.concertzender.nl -dump -- | grep -B1 -m 1 'Nu te horen' | head -n 1 | sed -e 's/^[ \t]*//' > /home/henk/.radiotray/nowplaying
+lynx -assume_charset=utf-8 -display_charset=utf-8 www.concertzender.nl -dump -- | grep -B1 -m 1 'Nu te horen' | head -n 1 | sed -e 's/^[ \t]*//' > /home/henk/.radiotray/nowplaying
